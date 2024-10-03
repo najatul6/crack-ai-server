@@ -4,7 +4,7 @@ const port = process.env.PORT || 5000
 
 // Make sure to include these imports:
 // import { GoogleGenerativeAI } from "@google/generative-ai";
-const genAI = new GoogleGenerativeAI(process.env.);
+const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
 const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
 
 const prompt = "Write a story about a magic backpack.";
