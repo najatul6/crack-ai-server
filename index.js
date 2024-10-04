@@ -11,7 +11,7 @@ app.get('/prompt',async(req, res)=>{
     const prompt = "Write a story about a magic backpack.";
     const result = await model.generateContent(prompt);
     const text=result.response.text()
-    console.log(text);
+    res.send({data: text,status:200});
 
 })
 
