@@ -6,7 +6,6 @@ const { GoogleGenerativeAI } = require("@google/generative-ai");
 const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
 const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
 
-app.use(express.urlencoded({ extends: true }));
 
 const form = `
 <form method="POST" action="/prompt">
@@ -16,12 +15,13 @@ const form = `
 
 `;
 
+app.use(express.urlencoded({ extends: true }));
 app.get("/prompt", async(req, res) => {
   res.send(form);
 });
 
 app.post("/prompt", async (req, res) => {
-  const prompt = req.body;
+  const {prompt} = req.body;
   const result = await model.generateContent(prompt);
   const text = result.response.text();
   res.send({ data: text, status: 200 });
