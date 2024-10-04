@@ -21,10 +21,10 @@ app.get("/prompt", async (req, res) => {
 
 app.post("/prompt", async (req, res) => {
   let { prompt } = req.body;
-  prompt = prompt + ". data will be in json stringify version.";
+  prompt = prompt + ". data will be in json stringify version. no extra text";
   const result = await model.generateContent(prompt);
   const text = result.response.text();
-  res.send({ data: JSON.parse(text), status: 200 });
+  res.send({ data: text, status: 200 });
 });
 
 app.get("/", (req, res) => {
