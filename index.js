@@ -6,7 +6,6 @@ const { GoogleGenerativeAI } = require("@google/generative-ai");
 const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
 const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
 
-
 const form = `
 <form method="POST" action="/prompt">
 <textarea name="prompt" id="prompt"></textarea>
@@ -16,15 +15,16 @@ const form = `
 `;
 
 app.use(express.urlencoded({ extends: true }));
-app.get("/prompt", async(req, res) => {
+app.get("/prompt", async (req, res) => {
   res.send(form);
 });
 
 app.post("/prompt", async (req, res) => {
-  const {prompt} = req.body;
+  let { prompt } = req.body;
+  prompt = prompt + ". data will be in json stringify version.";
   const result = await model.generateContent(prompt);
   const text = result.response.text();
-  res.send({ data: text, status: 200 });
+  res.send({ data: JSON.parse(text), status: 200 });
 });
 
 app.get("/", (req, res) => {
