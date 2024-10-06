@@ -3,9 +3,13 @@ const app = express();
 require("dotenv").config();
 const port = process.env.PORT || 5000;
 const cors= require("cors");
+
+// Global Middleware 
 app.use(cors())
 app.use(express.json())
 
+// Database Connect 
+run
 
 app.get("/", (req, res) => {
   res.send({
