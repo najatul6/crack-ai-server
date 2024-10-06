@@ -9,7 +9,7 @@ app.use(cors())
 app.use(express.json())
 
 // Database Connect 
-run
+connect
 
 app.get("/", (req, res) => {
   res.send({
