@@ -1,8 +1,9 @@
 const express= require('express');
-const { testRoute } = require('../controller/paintings.controller');
+const { testRoute, generatePaint } = require('../controller/paintings.controller');
 const router=express.Router()
 
 router.get('/',testRoute)
+router.get('/generate',generatePaint)
 
 // router.post("/")
 

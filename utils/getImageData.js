@@ -1,4 +1,4 @@
-const getImageData=(propmt)=>{
+const getImageData=async(propmt)=>{
     const form = new FormData();
     form.append("prompt", propmt);
     fetch("https://clipdrop-api.co/text-to-image/v1", {
@@ -13,3 +13,5 @@ const getImageData=(propmt)=>{
             return buffer
         })
 }
+
+module.exports={getImageData}
