@@ -2,7 +2,7 @@ const { db } = require("../utils/dbConnect");
 const { getImageData } = require("../utils/getImageData");
 const getImageUrl = require("../utils/getImageUrl");
 
-const paintingCollections = db.collection("paintings");
+const paintingCollections = db.collection("paintings")
 const testRoute = (req, res) => {
   res.send("Hello World form controller");
 };
