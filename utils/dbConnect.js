@@ -11,10 +11,11 @@ const client = new MongoClient(uri, {
   }
 });
 let db
-async function run() {
+const connect= async()=> {
   try {
     // Connect the client to the server	(optional starting in v4.7)
     await client.connect();
+    db=client.connect("Crack-Ai-DB")
     // Send a ping to confirm a successful connection
     await client.db("admin").command({ ping: 1 });
     console.log("Pinged your deployment. You successfully connected to MongoDB!");
@@ -23,3 +24,5 @@ async function run() {
     await client.close();
   }
 }
+
+module.exports={db,connect}
