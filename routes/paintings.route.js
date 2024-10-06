@@ -1,9 +1,8 @@
 const express= require('express');
+const { testRoute } = require('../controller/paintings.controller');
 const router=express.Router()
 
-router.get('/',(req,res)=>{
-    res.send('Hello from painting API')
-})
+router.get('/',testRoute)
 
 // router.post("/")
 
