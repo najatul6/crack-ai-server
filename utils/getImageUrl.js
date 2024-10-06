@@ -1,4 +1,6 @@
-const getImageUrl = async (buffer) => {
+const image_hosting_api=`https://api.imgbb.com/1/upload?key=${process.env.IMG_BB_API}`
+
+const getImageUrl = async (buffer,prompt) => {
   const imageFormData = new FormData();
   imageFormData.append(
     "image",
@@ -12,8 +14,8 @@ const getImageUrl = async (buffer) => {
     //   "Content-Type": "multipart/form-data",
     // },
   })
-  const imageData=await response.json();
-  return imageData
+  const imgData=await response.json();
+  return imgData
 };
 
 module.exports=getImageUrl
