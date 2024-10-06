@@ -14,6 +14,7 @@ connect();
 
 // Routes
 const paintingRoutes = require("./routes/paintings.route");
+app.use("/painting", paintingRoutes)
 
 app.get("/", (req, res) => {
   res.send({
