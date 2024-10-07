@@ -10,7 +10,8 @@ const testRoute = (req, res) => {
 const generatePaint = async (req, res) => {
   const { body } = req || {};
   const { prompt, email, category, type } = body || {};
-  const buffer = await getImageData(prompt);
+  const finalPrompt=`generate a beautiful ${type} of ${category} painting about ${prompt}`
+  const buffer = await getImageData(finalPrompt);
   const imageData = await getImageUrl(buffer, prompt);
   const data = {
     prompt: prompt,
