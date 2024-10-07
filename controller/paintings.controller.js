@@ -21,6 +21,8 @@ const generatePaint = async (req, res) => {
     email,
     category,
     type,
+    details:prompt,
+    date:new Date()
   };
   const result=await paintingCollections.insertOne(data)
   res.send(imageData);
