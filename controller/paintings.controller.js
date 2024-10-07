@@ -1,3 +1,4 @@
+const { ObjectId } = require("mongodb");
 const { db } = require("../utils/dbConnect");
 const { getImageData } = require("../utils/getImageData");
 const getImageUrl = require("../utils/getImageUrl");
@@ -31,7 +32,8 @@ const generatePaint = async (req, res) => {
 
 const singleImageDetails=async(req,res)=>{
   const { id } = req.params;
-  const painting = await paintingCollections.findOne({_id: new ObjectId(id)});
+  const query= {_id: new ObjectId(id) }
+  const painting = await paintingCollections.findOne(query);
   res.send(painting);
   
 }
