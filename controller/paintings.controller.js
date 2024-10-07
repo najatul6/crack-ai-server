@@ -25,7 +25,14 @@ const generatePaint = async (req, res) => {
     date:new Date()
   };
   const result=await paintingCollections.insertOne(data)
-  res.send(imageData);
+  res.send(result);
 };
+
+const singleImageDetails=async(req,res)=>{
+  const { id } = req.params;
+  const painting = await paintingCollections.findOne({_id: new ObjectId(id)});
+  res.send(painting);
+  
+}
 
 module.exports = { testRoute, generatePaint };
