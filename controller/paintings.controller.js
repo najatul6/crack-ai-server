@@ -35,4 +35,4 @@ const singleImageDetails=async(req,res)=>{
   
 }
 
-module.exports = { testRoute, generatePaint };
+module.exports = { testRoute, generatePaint,singleImageDetails };
