@@ -4,13 +4,13 @@ const { getImageData } = require("../utils/getImageData");
 const getImageUrl = require("../utils/getImageUrl");
 
 const paintingCollections = db.collection("paintings");
-const testRoute = (req, res) => {
-  res.send("Hello World form controller");
-};
+// const testRoute = (req, res) => {
+//   res.send("Hello World form controller");
+// };
 
-const getAllPaintings = (req, res) => {
-  const results = paintingCollections.find().toArray();
-  res.send(results);
+const getAllPaintings = async(req, res) => {
+  const results = await paintingCollections.find().toArray();
+  res.json(results);
 };
 
 const generatePaint = async (req, res) => {
@@ -42,4 +42,4 @@ const singleImageDetails = async (req, res) => {
   res.send(painting);
 };
 
-module.exports = { testRoute, generatePaint, singleImageDetails,getAllPaintings };
+module.exports = { generatePaint, singleImageDetails,getAllPaintings };
