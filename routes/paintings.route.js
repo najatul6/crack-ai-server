@@ -1,8 +1,8 @@
 const express= require('express');
-const { testRoute, generatePaint, singleImageDetails } = require('../controller/paintings.controller');
+const {  generatePaint, singleImageDetails, getAllPaintings } = require('../controller/paintings.controller');
 const router=express.Router()
 
-router.get('/',testRoute)
+router.get('/',getAllPaintings)
 router.get('/:id',singleImageDetails)
 router.post('/generate',generatePaint)
 
