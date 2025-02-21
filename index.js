@@ -6,7 +6,11 @@ const cors = require("cors");
 const { connect } = require("./utils/dbConnect");
 
 // Global Middleware
-app.use(cors());
+app.use(cors(
+  {
+    origin: "https://crack-ai-client.vercel.app",
+  }
+));
 app.use(express.json());
 
 // Database Connect
